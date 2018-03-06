@@ -4,7 +4,7 @@
 # awx ip @
 awx: 
 # ip: 172.25.90.196
-  ip: 192.168.233.144 
+  ip: 192.168.134.177 
 
 
 # awx organization you want to create
@@ -13,49 +13,51 @@ organization:
 
 # awx team you want to create. The below team belongs to the above organization
 team:
- name: "automation"
+ name: "DataCenter"
 
 # awx user you want to create. The below user belongs to the above organization
 user: 
- username: "ksator"
- first_name: "khelil"
- last_name: "sator"
- password: "AWXpassword"
+ username: "mmoore"
+ first_name: "Mitch"
+ last_name: "Moore"
+ password: "Test123#"
 
 # awx project you want to create. The below project belongs to the above organization
 project: 
- name: "Junos automation"
- git_url: "https://github.com/ksator/lab_management.git"
+ name: "JNPR-FormalFabric"
+ git_url: "https://github.com/packetjanitor/JNPR-FormalFabric.git"
 
 # credentials for AWX to connect to junos devices. The below credentials belong to the above organization
 credentials: 
- name: "junos"
+ name: "junos_host"
  username: "lab"
- password: "jnpr123"
+ password: "jnpr!123"
 
 # awx inventory you want to create. 
 # indicate which file you want to use as source of the AWX inventory. 
 # The below inventory belongs to the above organization
 inventory: 
- name: "junos_lab"
+ name: "junos_ssh"
  file: "hosts"
 
 # awx templates you want to create. 
 # indicate the list of playbooks you want to use when creating equivalent awx templates. 
 # The below playbook belongs to the above source 
 playbooks: 
- - 'pb.check.lldp.yml'
- - 'pb.check.bgp.yml'
- - 'pb.check.interfaces.yml'
- - 'pb.check.vlans.yml'
- - 'pb.check.lldp.json.yml'
- - 'pb.configure.golden.yml'
- - 'pb.configure.telemetry.yml'
- - 'pb.rollback.yml'
- - 'pb.print.facts.yml'
  - 'pb.check.all.yml'
- - 'pb.check.ports.availability.yml'
- 
- 
-
-
+ - 'pb.check.bgp.overlay.yml'
+ - 'pb.check.bgp.underlay.yml'
+ - 'pb.check.isis.underlay.yml'
+ - 'pb.check.lldp.yml'
+ - 'pb.check.ospf.underlay.yml'
+ - 'pb.check.reachability.yml'
+ - 'pb.collect.cli.output.yml'
+ - 'pb.collect.configuration.yml'
+ - 'pb.collect.facts.yml'
+ - 'pb.collect.golden.configuration.yml'
+ - 'pb.configure.golden.yml'
+ - 'pb.deploy.bgp.yml'
+ - 'pb.deploy.isis.yml'
+ - 'pb.deploy.ospf.yml'
+ - 'pb.deploy.overlay.yml'
+ - 'pb.rollback.yml'
